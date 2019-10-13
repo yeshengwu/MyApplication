@@ -27,8 +27,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Gradle: java-client-4.1.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: junit-4.12" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: selenium-server-standalone-3.0.1" level="project" />
+    <orderEntry type="library" exported="" name="java-client-4.1.2" level="project" />
+    <orderEntry type="library" exported="" name="junit-4.12" level="project" />
+    <orderEntry type="library" exported="" name="selenium-server-standalone-3.0.1" level="project" />
   </component>
 </module>
