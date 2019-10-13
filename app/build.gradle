@@ -1,0 +1,62 @@
+apply plugin:'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    sourceSets.main.jni.srcDirs = []
+    //add this to void http://tools.android.com/tech-docs/new-build-system/gradle-experimental
+
+    defaultConfig {
+        applicationId "com.ayvpn.client.bb"
+        minSdkVersion 9
+        targetSdkVersion 22
+        versionCode 35
+        versionName "3.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+            }
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 修改生成的apk名字 debug release.
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            if (variant.buildType.name.equals('debug')) {
+                def releaseApkName = 'winfo.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            } else if (variant.buildType.name.equals('release')) {
+                def releaseApkName = 'changxian_' + defaultConfig.versionName + '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'android-processes-1.1.1', ext: 'aar')
+
+//    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    compile project(':android-volley');
+    compile 'com.google.code.gson:gson:2.3.1'
+
+    testCompile 'junit:junit:4.12'
+}

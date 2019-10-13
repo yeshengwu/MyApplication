@@ -1,0 +1,26 @@
+<com.ayvpn.client.bb.widget.HashtagView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/hashtag_height"
+    android:foreground="?android:selectableItemBackground">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:text="name"
+        android:textSize="@dimen/hashtag_text_size"
+        android:gravity="center"/>
+
+    <ImageButton
+        android:id="@+id/description"
+        android:layout_width="@dimen/hashtag_desc_size"
+        android:layout_height="@dimen/hashtag_desc_size"
+        android:layout_gravity="bottom|end"
+        android:src="@mipmap/ic_launcher"
+        android:background="?selectableItemBackgroundBorderless"
+       />
+
+</com.ayvpn.client.bb.widget.HashtagView>
